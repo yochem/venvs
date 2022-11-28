@@ -3,6 +3,9 @@
 This script gathers all venvs in one folder and gives system-wide access to them.
 
 
+**Warning**: It is kinda hacky. Do not trust it without reading through the
+code (it's not that long).
+
 ## Installation
 
 Download this repository somewhere on your system. Then put this somewhere in
