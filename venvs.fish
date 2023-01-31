@@ -38,12 +38,12 @@ $venvsdir
 To move it, set \$XDG_DATA_HOME
 
 Usage:
-venvs                        activate venv in *current directory*
-venvs new ./<venv> <options> create new venv in *current directory*
-                             note: run python3 -m venv --help to see options
-
 venvs <venv>                 activate venv in the *global venvs directory*
 venvs new <venv> <options>   create new venv in *global venvs directory*
+                             note: run python3 -m venv --help to see options
+
+venvs                        activate venv in *current directory*
+venvs new ./<venv> <options> create new venv in *current directory*
                              note: run python3 -m venv --help to see options
 
 venvs [ls | list]            list all venvs

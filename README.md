@@ -15,6 +15,9 @@ your .bashrc / config.fish:
 # for bash:
 [ -f "path/to/venvs.bash" ] && source "path/to/venvs.bash"
 
+# for zsh (it's just a link to venvs.bash):
+[ -f "path/to/venvs.zsh" ] && source "path/to/venvs.zsh"
+
 # for fish
 [ -f "path/to/venvs.fish" ] && source "path/to/venvs.fish"
 ```
@@ -28,12 +31,12 @@ To place it somewhere else, set $XDG_DATA_HOME to another value. After that,
 
 ```
 Usage:
-venvs                        activate venv in *current directory*
-venvs new ./<venv> <options> create new venv in *current directory*
-                             note: run python3 -m venv --help to see options
-
 venvs <venv>                 activate venv in the *global venvs directory*
 venvs new <venv> <options>   create new venv in *global venvs directory*
+                             note: run python3 -m venv --help to see options
+
+venvs                        activate venv in *current directory*
+venvs new ./<venv> <options> create new venv in *current directory*
                              note: run python3 -m venv --help to see options
 
 venvs [ls | list]            list all venvs
