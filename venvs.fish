@@ -8,17 +8,19 @@ function venvs
 
 	switch "$command"
 		case ''
-			source (fd --max-depth 3 activate.fish)
+			set -l activate {.,}*/bin/activate.fish
+			set -q activate[1]
+			and source $activate[1]
 		case 'new'
 			[ -z "$name" ] && return
-			if string match -q './*' $name
+			if string match -q -- './*' $name
 				set path $name
 			else
 				set path "$venvsdir/$name"
 			end
-			python3 -m venv "$path" $argv[3..]
+			python3 -m venv "$path" $argv[3..] --upgrade-deps >/dev/null
 		case 'l*s*' # matches ls and list
-			command ls "$venvsdir"
+			command ls -1 "$venvsdir"
 		case 'r*m*' # matches rm and remove
 			[ -z "$name" ] && return
 			not [ -d "$venvsdir/$name" ] && echo "no venv named $name" && return

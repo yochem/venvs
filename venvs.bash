@@ -16,7 +16,7 @@ venvs() {
 
 	case "$command" in
 		'')
-			source "$(fd -t f --max-depth 3 --max-results 1 '^activate$')" 2>/dev/null
+			source {.,}*/bin/activate >/dev/null 2>&1
 			;;
 		'new')
 			[ -z "$name" ] && return
@@ -25,7 +25,7 @@ venvs() {
 			else
 				path="$venvsdir/$name"
 			fi
-			python3 -m venv "$path" $@
+			python3 -m venv "$path" $@ --upgrade-deps >/dev/null
 			;;
 		'ls'|'list')
 			command ls -1 "$venvsdir"
